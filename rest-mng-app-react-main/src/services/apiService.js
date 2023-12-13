@@ -545,14 +545,3 @@ export async function deleteTables(restaurantId, tableName, tableNum) {
         return [];
     }
 }
-
-export async function getTablesForRestaurant(restaurantId) {
-    try {
-        var response = await axios
-            .get(`${API_BASE_URL}/tables-restaurant?restaurantId=${restaurantId}`);
-        return response;
-    } catch (error) {
-        console.log(error);
-        return [];
-    }
-}

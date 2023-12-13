@@ -18,7 +18,7 @@ app.use(bodyParser.json()); // For parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
 app.use("/api/", router);
 
-const MONGO_URL = 'mongodb://root_user:root_password@localhost:27017';
+const MONGO_URL = 'mongodb+srv://rhythm6677:rhythm6677@cse471.wwlpboo.mongodb.net/?retryWrites=true&w=majority';
 // const MONGO_URL = 'mongodb+srv://sharifrafid:srur2003@cluster0.sc1x6.mongodb.net/?retryWrites=true&w=majority';
 
 router.get("/hello", (req, res) => res.send("Hello World!"));

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import ProductList from "../ProductList";
 import AddProduct from "./AddProduct";
 import QRCodePage from "./QRCodePage";
-import { getOrders, getProducts, getTablesForRestaurant, loginUser } from "../../services/apiService";
+import { getOrders, getProducts, loginUser } from "../../services/apiService";
 import { setOrdersData, setProductsData, setRestaurantsTables } from "../../redux/homeSlice";
 import { toast } from "react-toastify";
 import EditProfile from "./EditProfile";
@@ -41,16 +41,6 @@ function Home() {
         var response = await getOrders(resId ?? userData.restaurantId);
         if (response) {
             dispatch(setOrdersData(response.data));
-        } else {
-            // toast.warn("No oders found");
-        }
-    }
-
-    const fetchTablesList = async (resId) => {
-        var response = await getTablesForRestaurant(resId ?? userData.restaurantId);
-        if (response) {
-            console.log(response.data);
-            dispatch(setRestaurantsTables(response.data));
         } else {
             // toast.warn("No oders found");
         }
@@ -162,7 +152,6 @@ function Home() {
                                 <a className={`p-2 ${currentPage === 4 ? 'bg-primary text-white' : ''}`} onClick={() => {
                                     setCurrentPage(4);
                                     fetchOrdersList();
-                                    fetchTablesList();
                                     hideDrawer();
                                 }}>Orders</a>
                             </li>
