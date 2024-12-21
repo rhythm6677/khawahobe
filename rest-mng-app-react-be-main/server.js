@@ -18,8 +18,8 @@ app.use(bodyParser.json()); // For parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
 app.use("/api/", router);
 
-const MONGO_URL = 'mongodb+srv://rhythm6677:rhythm6677@cse471.wwlpboo.mongodb.net/?retryWrites=true&w=majority';
-// const MONGO_URL = 'mongodb+srv://sharifrafid:srur2003@cluster0.sc1x6.mongodb.net/?retryWrites=true&w=majority';
+const MONGO_URL = 'mongodb+srv://rhythm6677:rhythm6677@cse391.7vl4t.mongodb.net/?retryWrites=true&w=majority&appName=cse391';
+//const MONGO_URL = 'mongodb+srv://sharifrafid:srur2003@cluster0.sc1x6.mongodb.net/?retryWrites=true&w=majority';
 
 router.get("/hello", (req, res) => res.send("Hello World!"));
 
@@ -813,7 +813,7 @@ const Admin = mongoose.model('Admin', adminSchema);
 
 async function mongoConnect() {
     if (mongoose.connection.readyState == 0) {
-        await mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true, });
+        await mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true,ssl:true,tls:true });
     }
 }
 
